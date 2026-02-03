@@ -76,6 +76,12 @@ def setup_read_with_retime():
     [n.setSelected(False) for n in nuke.allNodes()]
     retime_node.setSelected(True)
     
+    # Set timeline position to 1001
+    nuke.frame(1001)
+    
+    # Connect retime node to viewer
+    nuke.connectViewer(0, retime_node)
+    
     print(f"Retime Setup Complete: {output_first} to {output_last}")
 
 if __name__ == '__main__':
